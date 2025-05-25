@@ -115,3 +115,4 @@ The `index.html` file contains the structure of the calculator interface. It inc
 The `logic.php` file includes the logic for performing the arithmetic operations based on the user inputs. It reads the inputs, performs the calculations, and stores the result in the `$result` variable, which is then displayed in the `index.html` file.
 "# php-calculator-app-master" 
 "# php-calculator-app-master" 
+"# php-calculator-app-master" 
