@@ -1,0 +1,45 @@
+.center {
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cal{
+    background-color: rgb(0, 0, 0);
+}
+
+.rectangle {
+    height: 50px;
+    width: 100%;
+    background-color: #024d12;
+    margin-bottom: 20px;
+  }
+
+.output{
+    display: block;
+}
+
+label{
+    font-size: 20px;
+    color: aliceblue;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+  
