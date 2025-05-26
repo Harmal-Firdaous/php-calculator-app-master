@@ -225,8 +225,8 @@
     </style>
 </head>
 <body>
-    <div class="calculatrice">
-        <h1 class="calculator-title">Calculator</h1>
+    <div class="calculator">
+        <h1 class="calculator-title">Calculatrice</h1>
         
         <form method="post">
             <div class="display">
