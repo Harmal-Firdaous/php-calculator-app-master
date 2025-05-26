@@ -207,12 +207,10 @@
             }
         }
 
-        /* Hover effects for better UX */
         .number-input:hover {
             border-color: #c8d6e5;
         }
 
-        /* Success animation for result */
         .result-animation {
             animation: pulse 0.6s ease-in-out;
         }
@@ -232,12 +230,33 @@
             <div class="display">
                 <div class="output" id="display">
                     <?php 
-                    include './app/logic.php';
-                    echo $result;
-                    if(isset($_POST["allClear"])){
-                        $result = '0';
-                        echo $result;
+                    $result = 0;
+                    
+                    // Check if form has been submitted and handle calculations
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if (isset($_POST["allClear"])) {
+                            $result = 0;
+                        } else {
+                            $numb01 = isset($_POST['numb01']) ? (float)$_POST['numb01'] : 0;
+                            $numb02 = isset($_POST['numb02']) ? (float)$_POST['numb02'] : 0;
+                            
+                            if (isset($_POST["addition"])) {
+                                $result = $numb01 + $numb02;
+                            } elseif (isset($_POST["subtraction"])) {
+                                $result = $numb01 - $numb02;
+                            } elseif (isset($_POST["multiplication"])) {
+                                $result = $numb01 * $numb02;
+                            } elseif (isset($_POST["division"])) {
+                                if ($numb02 != 0) {
+                                    $result = $numb01 / $numb02;
+                                } else {
+                                    $result = "Error: Division by zero";
+                                }
+                            }
+                        }
                     }
+                    
+                    echo $result;
                     ?>
                 </div>
             </div>
@@ -245,12 +264,12 @@
             <div class="input-section">
                 <div class="input-group">
                     <label class="input-label">First Number</label>
-                    <input type="number" name="numb01" class="number-input" placeholder="Enter first number" step="any">
+                    <input type="number" name="numb01" class="number-input" placeholder="Enter first number" step="any" value="<?php echo isset($_POST['numb01']) ? $_POST['numb01'] : ''; ?>">
                 </div>
                 
                 <div class="input-group">
                     <label class="input-label">Second Number</label>
-                    <input type="number" name="numb02" class="number-input" placeholder="Enter second number" step="any">
+                    <input type="number" name="numb02" class="number-input" placeholder="Enter second number" step="any" value="<?php echo isset($_POST['numb02']) ? $_POST['numb02'] : ''; ?>">
                 </div>
             </div>
 
